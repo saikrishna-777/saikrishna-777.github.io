@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Animated Site</title>
+  <style>
+    /* 1. ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+      50% { box-shadow: 0 0 35px rgba(56, 189, 248, 0.45); }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blinkCursor {
+      50% { border-color: transparent; }
+    }
+
+    /* 2. PAGE STYLES */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 3. CARD CONTAINER */
+    .card {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 2.5rem;
+      border-radius: 16px;
+      max-width: 480px;
+      width: 85%;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 0.8s ease-out forwards, pulseGlow 4s infinite ease-in-out;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    /* 4. TYPING EFFECT */
+    .typing-container {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      color: #38bdf8;
+      font-size: 2rem;
+      font-family: monospace;
+      margin: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #38bdf8;
+      width: 0;
+      animation: 
+        typing 2.5s steps(13, end) forwards,
+        blinkCursor 0.75s step-end infinite;
+    }
+
+    p {
+      color: #94a3b8;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 1s forwards;
+    }
+
+    /* 5. BUTTONS */
+    .links {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 1.2s forwards;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: #0f172a;
+      background-color: #38bdf8;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn:hover {
+      background-color: #7dd3fc;
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="typing-container">
+      <h1>Hello World!</h1>
+    </div>
+    
+    <p>Welcome to my personal site hosted live on GitHub Pages!</p>
+
+    <div class="links">
+      <a href="https://github.com/yourusername" class="btn">GitHub</a>
+      <a href="mailto:your-email@example.com" class="btn">Contact</a>
+    </div>
+  </div>
+
+</body>
+</html>
